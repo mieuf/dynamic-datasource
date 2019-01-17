@@ -8,17 +8,17 @@ spring:
     druid:
       datasource1:
         name: dataSource
-        url: jdbc:mysql://192.168.99.100:3306/database?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/database?useUnicode=true&characterEncoding=utf8
         username: root
         password: root
       datasource2:
         name: dataSource
-        url: jdbc:mysql://192.168.99.100:3306/database?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/database?useUnicode=true&characterEncoding=utf8
         username: root
         password: root
       datasource3:
         name: dataSource
-        url: jdbc:mysql://192.168.99.100:3306/database?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/database?useUnicode=true&characterEncoding=utf8
         username: root
         password: root
 
