@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.base.mieuf.project.bussiness.index.dao.ConfigInfoMapper">
+  <resultMap id="BaseResultMap" type="org.base.mieuf.project.bussiness.index.bean.ConfigInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, group_id, tenant_id, app_name, content
+  </sql>
+  <select id="selectAllsuffix1" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from config_info
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from config_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from config_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.base.mieuf.project.bussiness.index.bean.ConfigInfo">
+    insert into config_info (id, group_id, tenant_id, 
+      app_name, content)
+    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=VARCHAR}, #{tenantId,jdbcType=VARCHAR}, 
+      #{appName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.base.mieuf.project.bussiness.index.bean.ConfigInfo">
+    insert into config_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="appName != null">
+        app_name,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.base.mieuf.project.bussiness.index.bean.ConfigInfo">
+    update config_info
+    <set>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.base.mieuf.project.bussiness.index.bean.ConfigInfo">
+    update config_info
+    set group_id = #{groupId,jdbcType=VARCHAR},
+      tenant_id = #{tenantId,jdbcType=VARCHAR},
+      app_name = #{appName,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

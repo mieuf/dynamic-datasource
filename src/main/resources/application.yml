@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      datasource1:
+        name: dataSource
+        url: jdbc:mysql://192.168.99.100:3306/database?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: root
+      datasource2:
+        name: dataSource
+        url: jdbc:mysql://192.168.99.100:3306/database?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: root
+      datasource3:
+        name: dataSource
+        url: jdbc:mysql://192.168.99.100:3306/database?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: root
+
+server:
+  port: 8087
+logging:
+  level:
+    root: debug
+    org.base.mieuf: debug
